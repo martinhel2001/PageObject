@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Despegar_Home_Test {
+public class Despegar_Home_Test extends BaseTest {
 
     static WebDriver driver;
 
@@ -16,7 +16,7 @@ public class Despegar_Home_Test {
         driver = new FirefoxDriver();
         //driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://www.despegar.com.ar");
+        //driver.get("http://www.despegar.com.ar");
          }
 
     @Test
