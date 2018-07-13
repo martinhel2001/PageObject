@@ -1,9 +1,15 @@
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,10 +32,10 @@ public abstract class BaseTest {
 
         try {
 
-            InputStream resourceStream = new FileInputStream("test-config.properties");
+            InputStream resourceStream = new FileInputStream("src/main/resources/config.properties");
             prop.load(resourceStream);
 
-            BROWSER = prop.getProperty("test.browser");
+            BROWSER = prop.getProperty("browser");
             IMPLICIT_TIMEOUT = Integer.parseInt(prop.getProperty("implicit.wait.timeout"));
             FLUENT_TIMEOUT = Integer.parseInt(prop.getProperty("fluent.wait.timeout"));
 
@@ -55,4 +61,33 @@ public abstract class BaseTest {
 
 
     }
+
+
+    @BeforeClass (dependsOnMethods = "setUpTestProperties")
+    public static void setUpLocalDriver() throws Exception {
+
+        if (BROWSER.equals("Firefox")) {
+            driver = new FirefoxDriver();
+            driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
+            LOGGER.info("TEST SETUP OK");
+
+        } else if (BROWSER.equals("Chrome")) {
+            driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
+            LOGGER.info("TEST SETUP OK");
+        }
+        else { throw new Exception("BROWSER UNKNOWN"); }
+
+    }
+
+    @AfterClass
+    public static void tearDownDriver() {
+        driver.close();
+        driver.quit();
+    }
+
+
+
+
+
 }

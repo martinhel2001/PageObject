@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class Despegar_Home {
-    WebDriver driver;
+   // WebDriver driver;
     WebDriverWait wait;
 
     @FindBy(xpath = "/html/body/div[9]/div/div[1]/div/div[1]/div/div/div/div/div[3]/div/div[1]/div/div[1]/div/div/div/input")
@@ -40,7 +40,7 @@ public class Despegar_Home {
 
 
     public Despegar_Home(WebDriver driver){
-        this.driver= driver;
+        //this.driver= driver;
         PageFactory.initElements(driver,this);
         this.wait = new WebDriverWait(driver,20);
         }
