@@ -21,6 +21,7 @@ public abstract class BaseTest {
     protected static int IMPLICIT_TIMEOUT;
     protected static int FLUENT_TIMEOUT;
     protected static String APPLICATION_URL;
+    protected static String CHROME_DRIVER_PATH;
 
     protected static Logger LOGGER= Logger.getLogger(BaseTest.class.getName());
 
@@ -29,6 +30,7 @@ public abstract class BaseTest {
         Properties prop = new Properties();
 
         LOGGER.setLevel(Level.INFO);
+        CHROME_DRIVER_PATH = "src/main/utils/chromedriver.exe";
 
         try {
 
@@ -67,11 +69,13 @@ public abstract class BaseTest {
     public static void setUpLocalDriver() throws Exception {
 
         if (BROWSER.equals("Firefox")) {
+            System.setProperty("webdriver.chrome.driver",CHROME_DRIVER_PATH);
             driver = new FirefoxDriver();
             driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
             LOGGER.info("TEST SETUP OK");
 
         } else if (BROWSER.equals("Chrome")) {
+            System.setProperty("webdriver.chrome.driver",CHROME_DRIVER_PATH);
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
             LOGGER.info("TEST SETUP OK");
