@@ -16,7 +16,7 @@ public class Despegar_Home {
     @FindBy(xpath = "/html/body/div[9]/div/div[1]/div/div[1]/div/div/div/div/div[3]/div/div[1]/div/div[2]/div/div/div/div/input")
     WebElement inputDestino;
 
-    @FindBy(className = "input-tag sbox-checkin-date")
+    @FindBy(className = ".input-tag.sbox-checkin-date")
     WebElement btnFechaChekin;
 
     @FindBy(className = "fechaCheckout")
