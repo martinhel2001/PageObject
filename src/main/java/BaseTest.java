@@ -75,7 +75,10 @@ public abstract class BaseTest {
             LOGGER.info("TEST SETUP OK");
 
         } else if (BROWSER.equals("Chrome")) {
-            System.setProperty("webdriver.chrome.driver",CHROME_DRIVER_PATH);
+
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+
+                    "\\src\\main\\resources\\chromedriver.exe");
+
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
             LOGGER.info("TEST SETUP OK");
