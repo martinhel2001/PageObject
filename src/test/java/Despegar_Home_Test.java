@@ -39,7 +39,7 @@ public class Despegar_Home_Test extends BaseTest {
 */
     @Test
     public void TestBuscarReserva() throws InterruptedException {
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +"/test-output/ExtentReport.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +"/test-output/ExtentReport-Despegar.html");
         report = new ExtentReports();
         report.attachReporter(htmlReporter);
         logger = report.createTest("CheckURLStatus");
