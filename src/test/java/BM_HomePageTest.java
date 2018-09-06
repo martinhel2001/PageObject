@@ -15,7 +15,7 @@ public class BM_HomePageTest {
         WebDriver driver;
         @BeforeTest
         public void setup () {
-            System.setProperty("webdriver.chrome.driver","..\\src\\main\\resources\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver","C:\\Users\\ondra\\IdeaProjects\\PageObject\\src\\main\\resources");
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.get("https://www.bullmarketbrokers.com/");
