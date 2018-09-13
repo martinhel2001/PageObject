@@ -48,8 +48,8 @@ public class Despegar_Home {
         }
 
     public boolean BuscarDefault(String origen, String destino) throws InterruptedException {
-        wait.until(ExpectedConditions.elementToBeClickable(botonCerrarPopup));
-        botonCerrarPopup.click();
+        //wait.until(ExpectedConditions.elementToBeClickable(botonCerrarPopup));
+       // botonCerrarPopup.click();
         Thread.sleep(800);
         wait.until(ExpectedConditions.elementToBeClickable(inputOrigen));
         inputOrigen.sendKeys(origen);

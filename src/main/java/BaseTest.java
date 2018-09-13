@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -76,8 +77,9 @@ public abstract class BaseTest {
 
         } else if (BROWSER.equals("Chrome")) {
 
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+
-                    "\\src\\main\\resources\\chromedriver.exe");
+            //System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\resources\\chromedriver.exe");
+
+            WebDriverManager.chromedriver().setup();
 
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
