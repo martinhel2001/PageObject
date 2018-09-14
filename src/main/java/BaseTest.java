@@ -86,7 +86,7 @@ public abstract class BaseTest {
             options.addArguments("--headless");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
             LOGGER.info("TEST SETUP OK");
         }
